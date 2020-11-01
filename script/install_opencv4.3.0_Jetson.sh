@@ -29,16 +29,17 @@ sudo apt-get install -y python2.7-dev python3.6-dev python-dev python-numpy pyth
 sudo apt-get install -y libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
 sudo apt-get install -y libv4l-dev v4l-utils qv4l2 v4l2ucp
 sudo apt-get install -y curl
+sudo apt-get install -y libjpeg-dev zlib1g-dev libopenblas-base libopenmpi-dev cmake 
 sudo apt-get update
 
 
-echo "** Download opencv-4.3.0"
+echo "** Download opencv-4.4.0"
 cd $folder
-curl -L https://github.com/opencv/opencv/archive/4.3.0.zip -o opencv-4.3.0.zip
-curl -L https://github.com/opencv/opencv_contrib/archive/4.3.0.zip -o opencv_contrib-4.3.0.zip
-unzip opencv-4.3.0.zip
-unzip opencv_contrib-4.3.0.zip
-cd opencv-4.3.0/
+curl -L https://github.com/opencv/opencv/archive/4.4.0.zip -o opencv-4.4.0.zip
+curl -L https://github.com/opencv/opencv_contrib/archive/4.4.0.zip -o opencv_contrib-4.4.0.zip
+unzip opencv-4.4.0.zip
+unzip opencv_contrib-4.4.0.zip
+cd opencv-4.4.0/
 
 
 echo "** Apply patch"
@@ -56,5 +57,7 @@ make -j$(nproc)
 #source ~/.bashrc
 
 
-echo "** Install opencv-4.3.0 successfully"
+echo "** Install opencv-4.4.0 successfully"
+pip3 install Cython
+pip3 install numpy scipy 
 echo "** Bye :)"
